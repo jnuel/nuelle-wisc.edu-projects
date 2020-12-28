@@ -1,0 +1,59 @@
+function out_img = blendImagePair(wrapped_imgs, masks, wrapped_imgd, maskd, mode)
+sz = size(wrapped_imgs);
+imax = sz(1);
+jmax = sz(2);
+
+if strcmp(mode, 'overlay') == 1
+    for i = 1:1: imax  
+        for j = 1:1: jmax
+            if maskd(i,j) ~= 0
+                wrapped_imgs(i,j,1) = wrapped_imgd(i,j,1);
+                wrapped_imgs(i,j,2) = wrapped_imgd(i,j,2);
+                wrapped_imgs(i,j,3) = wrapped_imgd(i,j,3);
+            end
+        end
+    end
+    out_img = wrapped_imgs;
+    
+elseif strcmp(mode, 'blend') == 1
+    blmaskd = bwdist(~maskd);
+    %blmaskd = ~blmaskd;
+    %md = max(max(blmaskd))
+    %blmaskd(:,:) = blmaskd(:,:)*1.0/md;
+    %gmd = mat2gray(blmaskd);
+    %figure; imshow(gmd)
+    %figure; imshow(maskd)
+    
+    blmasks = bwdist(~masks);
+    %blmasks = ~blmasks;
+    
+    %ms = max(max(blmasks));
+    %blmasks(:,:) = blmasks(:,:)*1.0/ms; 
+    %gms = mat2gray(blmasks);
+    %figure; imshow(gms)
+    
+    %wmD(:,:) = double(gmd(:,:)/(gmd(:,:)+gms(:,:))); 
+    %wmS(:,:) = double(gms(:,:)/(gmd(:,:)+gms(:,:)));
+    
+    out_img = wrapped_imgs;
+    
+    %out_img = double(wrapped_imgd) .* cat(3, blmaskd, blmaskd, blmaskd) + double(wrapped_imgs) .* cat(3, blmasks, blmasks, blmasks);
+    
+    for i = 1:1: imax  
+        for j = 1:1: jmax
+            %if maskd(i,j) ~= 0
+                %wd = wmD(i,j); %double(blmasks(i,j));%*1.0/255;
+                %ws = wmS(i,j); %double(blmaskd(i,j));%*1.0/255;
+                out_img(i,j,1) = (wrapped_imgd(i,j,1) + wrapped_imgs(i,j,1));%ceil( (double(wrapped_imgd(i,j,1))*wd + double(wrapped_imgs(i,j,1))*ws) / (wd + ws) );
+                out_img(i,j,2) = (wrapped_imgd(i,j,2) + wrapped_imgs(i,j,2));%ceil( (double(wrapped_imgd(i,j,2))*wd + double(wrapped_imgs(i,j,2))*ws) / (wd + ws) );
+                out_img(i,j,3) = (wrapped_imgd(i,j,3) + wrapped_imgs(i,j,3));%ceil( (double(wrapped_imgd(i,j,3))*wd + double(wrapped_imgs(i,j,3))*ws) / (wd + ws) );
+            %end
+        end
+    end
+    
+    
+    
+end
+
+%out_img
+imshow(out_img)

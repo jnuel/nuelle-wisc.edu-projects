@@ -1,0 +1,5 @@
+Your output:
+[10, 9]
+
+Solution output:
+[10, 9]

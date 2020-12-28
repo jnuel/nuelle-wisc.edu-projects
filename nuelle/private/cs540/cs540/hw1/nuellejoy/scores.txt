@@ -1,0 +1,29 @@
+Grading Homework 1 ==> 
+fill0.txt: test case passed: 3 points
+fill1.txt: test case passed: 3 points
+fill2.txt: test case passed: 4 points
+empty0.txt: test case passed: 3 points
+empty1.txt: test case passed: 3 points
+empty2.txt: test case passed: 4 points
+xfer0.txt: test case passed: 3 points
+xfer1.txt: test case passed: 3 points
+xfer2.txt: test case passed: 4 points
+succ0.txt: output mismatch 
+succ1.txt: output mismatch 
+succ2.txt: output mismatch 
+succ3.txt: output mismatch 
+succ4.txt: output mismatch 
+man0.txt: test case passed: 2 points
+man1.txt: test case passed: 2 points
+man2.txt: output mismatch 
+man3.txt: output mismatch 
+readds0.txt: output mismatch 
+maj0.txt: test case passed: 3 points
+maj1.txt: test case passed: 2 points
+maj2.txt: test case passed: 5 points
+knn0.txt: output mismatch 
+knn1.txt: output mismatch 
+knn2.txt: output mismatch 
+knn3.txt: test case passed: 4 points
+Add 20 points for general formatting, comments or file name issues // -5 for code wrong indentation in both the files
+Scores: 63

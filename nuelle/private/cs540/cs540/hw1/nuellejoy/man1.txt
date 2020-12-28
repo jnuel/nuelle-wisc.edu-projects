@@ -1,0 +1,5 @@
+Your output:
+25.30000000000001
+
+Solution output:
+25.3

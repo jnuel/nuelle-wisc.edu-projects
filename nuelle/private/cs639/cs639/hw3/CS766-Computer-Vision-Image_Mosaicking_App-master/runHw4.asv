@@ -1,0 +1,254 @@
+function runHw4(varargin)
+% runHw4 is the "main" interface that lists a set of 
+% functions corresponding to the problems that need to be solved.
+%
+% Note that this file also serves as the specifications for the functions 
+% you are asked to implement. In some cases, your submissions will be autograded. 
+% Thus, it is critical that you adhere to all the specified function signatures.
+%
+% Before your submssion, make sure you can run runHw4('all') 
+% without any error.
+%
+% Usage:
+% runHw4                       : list all the registered functions
+% runHw4('function_name')      : execute a specific test
+% runHw4('all')                : execute all the registered functions
+
+% Settings to make sure images are displayed without borders
+orig_imsetting = iptgetpref('ImshowBorder');
+iptsetpref('ImshowBorder', 'tight');
+temp1 = onCleanup(@()iptsetpref('ImshowBorder', orig_imsetting));
+
+fun_handles = {@honesty,...
+    @challenge1a, @challenge1b, @challenge1c,...
+    @challenge1d, @challenge1e, @challenge1f,...
+    @demoMATLABTricks};
+
+% Call test harness
+runTests(varargin, fun_handles);
+
+%--------------------------------------------------------------------------
+% Academic Honesty Policy
+%--------------------------------------------------------------------------
+%%
+function honesty()
+% Type your full name and uni (both in string) to state your agreement 
+% to the Code of Academic Integrity.
+signAcademicHonestyPolicy('Sneha Rudra', 'rudra');
+
+%--------------------------------------------------------------------------
+% Tests for Challenge 1: Panoramic Photo App
+%--------------------------------------------------------------------------
+
+%%
+function challenge1a()
+% Test homography
+
+orig_img = imread('portrait.png'); 
+warped_img = imread('portrait_transformed.png');
+
+% Choose 4 corresponding points (use ginput)
+src_pts_nx2  = [411.0066 313.4456; 368.9803 367.4794; 495.0591 346.4662; 386.9916 574.6088];
+dest_pts_nx2 = [334.4587 281.9259; 292.4325 332.9578; 429.0178 308.9428; 305.9409 526.5788];
+
+    
+H_3x3 = computeHomography(src_pts_nx2, dest_pts_nx2);
+
+% src_pts_nx2 and dest_pts_nx2 are the coordinates of corresponding points 
+% of the two images, respectively. src_pts_nx2 and dest_pts_nx2 
+% are nx2 matrices, where the first column contains
+% the x coodinates and the second column contains the y coordinates.
+%
+% H, a 3x3 matrix, is the estimated homography that 
+% transforms src_pts_nx2 to dest_pts_nx2. 
+
+
+% Choose another set of points on orig_img for testing.
+% test_pts_nx2 should be an nx2 matrix, where n is the number of points, the
+% first column contains the x coordinates and the second column contains
+% the y coordinates.
+
+test_pts_nx2 = [344.9653, 313.4456; 383.9897, 448.5300; 385.4906, 223.3893; 439.5244, 352.4700];
+
+
+% imshow(orig_img);
+% hold on
+% plot(test_pts_nx2(1,1), test_pts_nx2(1,2), 'x', 'Color', [1,0,0]);
+% hold on
+% plot(test_pts_nx2(2,1), test_pts_nx2(2,2), 'x', 'Color', [1,0,0]);
+% hold on
+% plot(test_pts_nx2(3,1), test_pts_nx2(3,2), 'x', 'Color', [1,0,0]);
+% hold on
+% plot(test_pts_nx2(4,1), test_pts_nx2(4,2), 'x', 'Color', [1,0,0]);
+% hold off
+
+
+% Apply homography
+dest_pts_nx2 = applyHomography(H_3x3, test_pts_nx2);
+% test_pts_nx2 and dest_pts_nx2 are the coordinates of corresponding points 
+% of the two images, and H is the homography.
+
+% Verify homography 
+result_img = showCorrespondence(orig_img, warped_img, test_pts_nx2, dest_pts_nx2);
+imwrite(result_img, 'homography_result.png');
+
+
+%%
+function challenge1b()
+% Test wrapping 
+
+bg_img = im2double(imread('Osaka.png')); %figure(1); imshow(bg_img);
+portrait_img = im2double(imread('portrait_small.png')); %figure(2); imshow(portrait_img);
+%size(bg_img);
+
+% Estimate homography
+portrait_pts = [3 4; 324 2; 326 399; 3 399];
+bg_pts = [101 20; 275 71; 286 423; 84 439];
+   
+% imshow(portrait_img);
+% hold on;
+% plot(3,4,'x','Color',[1,0,0]);
+% hold on;
+% plot(324,2,'x','Color',[1,0,0]);
+% hold on;
+% plot(326,399,'x','Color',[1,0,0]);
+% hold on;
+% plot(3,399,'x','Color',[1,0,0]);
+% hold off
+
+H_3x3 = computeHomography(portrait_pts, bg_pts);
+
+% pts = [bg_pts';1,1,1,1];
+% dp = inv(H_3x3)*[460;640;1];
+% dp(1,:) = ceil(dp(1,:)./dp(3,:));
+% dp(2,:) = ceil(dp(2,:)./dp(3,:));
+% dp(3,:) = dp(3,:)./dp(3,:);
+% dp
+% figure; imshow(portrait_img);
+% hold on;
+% plot(dp(1),dp(2),'x','Color',[1,0,0]);
+% hold off;
+% return;
+
+% % FORWARD!!
+% sz = size(portrait_img);
+% for i = 1:1: sz(1)
+%     for j = 1:1:sz(2)
+%         v = [j;i;1];
+%         a = H_3x3*v;
+%         a(1) = a(1)/a(3);
+%         
+%         a(2) = a(2)/a(3);
+%   
+%         
+%         bg_img(ceil(a(2)),ceil(a(1)),1) = portrait_img(i,j,1);
+%         bg_img(ceil(a(2)),ceil(a(1)),2) = portrait_img(i,j,2);
+%         bg_img(ceil(a(2)),ceil(a(1)),3) = portrait_img(i,j,3);
+%     end
+% end
+% 
+% %figure; imshow(bg_img)
+% %return;
+
+
+
+
+dest_canvas_width_height = [size(bg_img, 2), size(bg_img, 1)];
+
+% Warp the portrait image
+[mask, dest_img] = backwardWarpImg(portrait_img, inv(H_3x3), dest_canvas_width_height);
+% mask should be of the type logical
+mask = ~mask;
+% Superimpose the image
+result = bg_img .* cat(3, mask, mask, mask) + dest_img;
+figure, imshow(result);
+imwrite(result, 'Van_Gogh_in_Osaka.png');
+
+%return;
+
+
+%figure, imshow(result);
+%imwrite(result, 'Van_Gogh_in_Osaka.png');
+
+%%  
+function challenge1c()
+% Test RANSAC -- outlier rejection
+
+imgs = imread('mountain_left.png'); imgd = imread('mountain_center.png');
+%% UNCOMMENT LATER!!!!!!!!!!!!!!!!!!!
+[xs, xd] = genSIFTMatches(imgs, imgd);
+
+% xs and xd are the centers of matched frames
+% xs and xd are nx2 matrices, where the first column contains the x
+% coordinates and the second column contains the y coordinates
+
+% %% COMMENT LATER!!!!
+% %xs = [856.3 520.2500; 956.8 541.2500; 1001.8 557.7500; 1037.8 691.2500; 985.3 400.2500; 581.8 155.7500; 196.3 443.7500; 863.8 460.2500; 1045.3 397.2500; 709.3 614.7500];
+% %xd = [116.7500 481.2500; 197.7500 494.7500; 211.2500 538.2500; 167.7500 587.7500; 109.2500 613.2500; 238.2500 380.7500; 374.7500 220.2500; 536.7500 442.2500; 37.2500 440.7500; 116.7500 535.2500];
+%   
+% xs = [950.7500 530.7500; 959.7500 398.7500; 949.2500 572.7500; 917.7500 434.7500; 731.7500 226.2500; 271.2500 394.2500; 557.7500 509.7500; 632.7500 464.7500; 389.7500 157.2500; 581.7500 637.2500];
+% xd = [115.2500 520.2500; 113.7500 386.7500; 199.2500 572.7500; 148.2500 430.2500; 134.7500 224.7500; 509.7500 383.7500; 449.7500 481.2500; 422.7500 442.2500; 466.2500 583.2500; 241.2500 211.2500];
+
+
+before_img = showCorrespondence(imgs, imgd, xs, xd);
+figure, imshow(before_img);
+imwrite(before_img, 'before_ransac.png');
+
+sz = size(xs);
+n = sz(1);
+
+%return;
+% Use RANSAC to reject outliers
+ransac_n = n/2; % Max number of iteractions
+ransac_eps = 0.1; %Acceptable alignment error 
+
+[inliers_id, H_3x3] = runRANSAC(xs, xd, ransac_n, ransac_eps);
+%inliers_id
+%H_3x3
+%return;
+
+after_img = showCorrespondence(imgs, imgd, xs(inliers_id, :), xd(inliers_id, :));
+figure , imshow(after_img);
+imwrite(after_img, 'after_ransac.png');
+
+%
+%
+function challenge1d()
+% Test image blending
+
+[fish, fish_map, fish_mask] = imread('escher_fish.png');
+
+[horse, horse_map, horse_mask] = imread('escher_horsemen.png');
+
+blended_result = blendImagePair(fish, fish_mask, horse, horse_mask,...
+    'blend');
+%figure, imshow(blended_result);
+imwrite(blended_result, 'blended_result.png');
+
+overlay_result = blendImagePair(fish, fish_mask, horse, horse_mask, 'overlay');
+%figure, imshow(overlay_result);
+imwrite(overlay_result, 'overlay_result.png');
+
+%%
+function challenge1e()
+% Test image stitching
+
+% stitch three images
+imgc = im2single(imread('mountain_center.png'));
+imgl = im2single(imread('mountain_left.png'));
+imgr = im2single(imread('mountain_right.png'));
+
+%h = msgbox('Not implemented');
+%return;
+
+% You are free to change the order of input arguments
+stitched_img = stitchImg(imgl, imgc, imgr);
+%return;
+%figure, imshow(stitched_img);
+imwrite(stitched_img, 'mountain_panorama.png');
+
+%%
+function challenge1f()
+% Your own panorama
+h = msgbox('Not implemented');
+return;

@@ -1,0 +1,19 @@
+total 240
+drwxr-xr-x@ 18 JoyNuelle  staff    576 Feb 13 17:08 .
+drwxr-xr-x   6 JoyNuelle  staff    192 Feb 10 15:43 ..
+-rw-r--r--@  1 JoyNuelle  staff   6148 Feb 13 15:56 .DS_Store
+-rw-r--r--@  1 JoyNuelle  staff   1846 Feb 13 10:34 fork-test.c
+-rw-r--r--   1 JoyNuelle  staff      0 Feb 13 17:08 hi
+-rw-r--r--@  1 JoyNuelle  staff   1831 Feb 13 10:34 no.txt
+drwxr-xr-x@  8 JoyNuelle  staff    256 Feb 13 12:19 p2adiscuss
+-rw-r--r--@  1 JoyNuelle  staff   1153 Feb 13 12:19 p2adiscuss.tar.gz
+drwxr-xr-x@  7 JoyNuelle  staff    224 Feb 13 12:21 p2adiscuss_2
+-rwxr-xr-x   1 JoyNuelle  staff  17892 Feb 13 17:07 parse
+-rw-r--r--@  1 JoyNuelle  staff   3355 Feb 13 17:07 parse.c
+-rw-r--r--@  1 JoyNuelle  staff   5485 Feb 13 10:34 smash.c
+-rw-r--r--@  1 JoyNuelle  staff   3436 Feb 13 10:34 smashv1.c
+-rw-r--r--@  1 JoyNuelle  staff   4430 Feb 13 10:34 smashv2.c
+-rwxr-xr-x   1 JoyNuelle  staff  17892 Feb 13 12:33 smashv3
+-rw-r--r--@  1 JoyNuelle  staff   4502 Feb 13 12:34 smashv3.c
+-rwxr-xr-x   1 JoyNuelle  staff  17892 Feb 13 16:49 smashv4
+-rw-r--r--@  1 JoyNuelle  staff   4723 Feb 13 16:49 smashv4.c

@@ -1,0 +1,151 @@
+! CSL UNIX .Xresources
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+!	.Xresources file
+!
+!	This file contains X resourses in a format that the xrdb program
+!	understands.  It is used to load resources (which configure X
+!	Window System programs) into the X server when you log in.  See
+!	lab documentation for more information about X and this file.
+!
+!	This file is sparse because most X resources have default values
+!	stored elsewhere.  It is primarily meant for your personal use.
+!	Please note that resources specified in the .Xdefaults file will
+!	be included in this file automatically.
+!
+!	$Id: .Xresources,v 1.16 2012/08/15 14:32:17 babb Exp $
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!	Define standard fonts
+!
+!	NOTE: these fonts are fully specified, even though in theory
+!	wildcarded fonts would be better (because they would adapt to 
+!	the resolution of whatever display you are on), becuase this way
+!	the hand-tuned bitmap fonts are used, which look MUCH better for small
+!	sizes.
+!
+!	There are two sets of specifications: one for resolutions < 88 dpi,
+!	and one for larger resolutions.
+
+XTerm*faceName: Bitstream Vera Sans Mono
+XTerm*faceSize: 11
+!emacs.Font:      -bitstream-bitstream vera sans mono-medium-r-normal--12-120-75-75-m-70-iso8859-1
+emacs.FontBackend:	xft
+!emacs.Font:		Bitstream Vera Sans Mono-12
+
+!#if X_RESOLUTION < 3445
+!!       First the fixed width fonts (text widgets, terminal emulators, etc.)
+!*Text*Font:      -adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1
+!XTerm*Font:     -adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1
+!XTerm*boldFont: -adobe-courier-bold-r-normal--12-120-75-75-m-70-iso8859-1
+!XTerm*font2:    -adobe-courier-medium-r-normal--8-80-75-75-m-50-iso8859-1
+!XTerm*font3:    -adobe-courier-medium-r-normal--10-100-75-75-m-60-iso8859-1
+!XTerm*font4:    -adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1
+!XTerm*font5:    -adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1
+!XTerm*font6:    -adobe-courier-medium-r-normal--18-180-75-75-m-110-iso8859-1
+!!emacs.Font:      -adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1
+!!       The rest (buttons, labels, etc.) are variable width
+!!*Font:  -adobe-new century schoolbook-medium-r-normal--12-120-75-75-p-70-iso8859-1
+!#else
+!!       First the fixed width fonts (text widgets, terminal emulators, etc.)
+!*Text*Font:     -adobe-courier-medium-r-normal--17-120-100-100-m-100-iso8859-1
+!XTerm*Font:    -adobe-courier-medium-r-normal--17-120-100-100-m-100-iso8859-1
+!XTerm*boldFont:-adobe-courier-bold-r-normal--17-120-100-100-m-100-iso8859-1
+!XTerm*font2:   -adobe-courier-medium-r-normal--11-80-100-100-m-60-iso8859-1
+!XTerm*font3:   -adobe-courier-medium-r-normal--14-100-100-100-m-90-iso8859-1
+!XTerm*font4:   -adobe-courier-medium-r-normal--17-120-100-100-m-100-iso8859-1
+!XTerm*font5:   -adobe-courier-medium-r-normal--20-140-100-100-m-110-iso8859-1
+!XTerm*font6:   -adobe-courier-medium-r-normal--25-180-100-100-m-150-iso8859-1
+!!emacs.Font:     -adobe-courier-medium-r-normal--17-120-100-100-m-100-iso8859-1
+!!       The rest (buttons, labels, etc.) are variable width
+!!*Font:  -adobe-new century schoolbook-medium-r-normal--17-120-100-100-p-91-iso8859-1
+!
+!#endif
+
+! .xsession or .fvwmrc or elsewhere.
+SmallXTerm*Font:	6x13
+SmallXTerm*boldFont:	6x13bold
+BigXTerm*Font:		10x20
+BigXTerm*boldFont:	10x20
+
+
+
+! Use the C pre-processor to define colornames to be used below and
+! to set the customization prefix to "-color" (see the X Resources 
+! documentation).  The color for XTerms is in the old RGB format.
+
+#ifdef COLOR
+*customization:		-color
+# define CSLFOREGROUND	black
+# define CSLBACKGROUND	LightSteelBlue
+# define XTERMBACKGROUND #FFFFEB
+#else
+# define CSLFOREGROUND	black
+# define CSLBACKGROUND	white
+# define XTERMBACKGROUND white
+#endif
+
+
+! Define colors and geometries for common programs
+
+XClock*Background:	CSLBACKGROUND
+XClock*Foreground:	CSLFOREGROUND
+XClock*geometry:	58x58-8+40
+
+XBiff*Background:	CSLBACKGROUND
+XBiff*Foreground:	CSLFOREGROUND
+XBiff*geometry:		58x58-74+40
+
+XLogout*Background:	CSLBACKGROUND
+XLogout*Foreground:	CSLFOREGROUND
+
+emacs*Foreground:	white
+emacs*Background:	black
+emacs*menubar*Foreground:	CSLFOREGROUND
+emacs*menubar*Background:	XTERMBACKGROUND
+! the emacs.Font is specified with the other fonts above
+
+
+! XTerm resources.  We save 2048 lines above what is displayed, turn on
+! the scroll bar (which uses more memory), and set some standard control 
+! characters.
+
+XTerm*Background:	XTERMBACKGROUND
+!XTerm*Foreground:	CSLFOREGROUND
+XTerm*reverseWrap:	true
+XTerm*saveLines:	2048
+XTerm*scrollBar:	true
+
+!	Set the "stty" modes here, so that xterms will have the "right" modes
+!	without each xterm being a "login" shell.
+XTerm*ttyModes:		intr ^C quit ^\\ erase ^H kill ^U
+
+!	Make F1 be equivalent to escape in xterm. Don't do this for
+!	all applications, because some want to use the function keys as
+!	function keys
+XTerm*VT100.translations:    #override \n\
+			<Key>F1: string(0x1b)
+
+! uncomment the following line to be able to cut pathnames, email addresses,
+! and URLs. double-click will select the current "word", with  the following
+! characters considered as letters/numbers (part of a word, not a delimeter):
+!                        +    - . /     @     _      ~
+!XTerm*VT100.charClass:  43:48,45-47:48,64:48,95:48,126:48
+!
+! uncomment the following line so that triple-click selects from the current 
+! word to the end of the line instead of the entire line. Useful for grabbing
+! the last command (without the prompt).
+! XTerm*VT100.cutToBeginningOfLine:       false
+!
+!       Definitions for Xaw3d
+!	"beNiceToColormap" causes 3d widgets to allocate 2 colors for 
+!	shadowing, instead of stipple patterns (which look awful)
+*beNiceToColormap:      False
+!
+! Uncomment the following to enable 8-bit character passing in xterm 
+! windows.  Leaving this feature disabled will translate Meta to Esc 
+! in emacs.  Enabling this feature will pass 8-bit key sequences to 
+! the application running in the xterm window.
+XTerm*eightBitInput:	False
+

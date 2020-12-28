@@ -1,0 +1,65 @@
+!	.Xkeymap:
+!	this file is used with xmodmap to set the keyboard mapping
+!	(which keys have which "keysyms" -- you can make any key have 
+!	any value). See xmodmap(1) for details.
+!
+!	This file has comments to explain most of what it being set here.
+!	This file is setup to be run through cpp (the C preprocessor) 
+!	before being fed to xmodmap. The xdpytype program will determine
+!	the proper defines for the display you are using. Typical usage
+!	is in your .xession file. 
+!
+!	$Id: .Xkeymap,v 1.9 2005/08/12 21:01:53 john Exp $
+!	
+
+#if defined(WHEELMOUSE)
+! uncomment to use left-hand mouse mappings with a wheel mouse
+! pointer = 3 2 1 4 5
+#else
+! uncomment to use left-hand mouse mappings with other (non-wheel) mouse
+! pointer = 3 2 1
+#endif
+
+#if defined(DEC)
+!	Make the F11 key F11, instead of Escape
+keycode 113 = F11
+!	Make the Compose Character key a true Meta key (instead of Alt)
+keycode 177 = Meta_L
+!	The DEC server does not have <> over ,. by default. Put them there.
+keycode 232 = comma less
+keycode 237 = period greater
+! 	make the delete key be a backspace key
+keycode 188 = BackSpace
+#endif
+#if defined(HP)
+!	Make the "Extend Char" keys work as meta keys in emacs
+remove mod1 = Mode_switch
+!	Uncomment if you want the following:
+!	Make both Caps and Ctrl function as Control.
+! clear control
+! clear lock
+! keycode 55 = Control_L
+! keycode 14 = Control_R
+! add Control = Control_L Control_R
+!	Make Execute key be the Caps key
+! clear lock
+! keycode 87 = Caps_Lock
+! add Lock = Caps_Lock
+!	Make the Break key be an Escape key
+! keycode 15 = Escape
+#endif
+#if defined(IBM)
+!	Uncomment if you want the following:
+!	Swap Caps Lock and Ctrl on IBM keyboard.
+! clear lock
+! clear control
+! keycode 20 = Control_L
+! keycode 17 = Caps_Lock
+! add Lock = Caps_Lock
+! add Control = Control_L
+#endif
+#if defined(NCD)
+! Make the Alt keys true Meta keys.
+keycode  25 = Meta_L
+keycode  57 = Meta_R
+#endif

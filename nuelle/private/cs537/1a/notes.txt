@@ -1,0 +1,35 @@
+--------------    Grep
+ Output of dmesg --> input to grep
+"Piping" | symbol between different commands
+
+ Return Code 
+0- successful
+non-zero -- program was not successful
+
+ls-l gives you the info and prints it out on the screen. 
+Grep - finds the item in line and prints it out. 
+
+**use "man" then the function to see what it does, how to use it and errors!!
+
+Hexdump shows you both the binary representation and also the ascii representation on the right side.
+-X in hexdump displays the input offset in hexidecimal
+
+fgetline might be helpful! especially for GREP
+How do you find if the line contains the string? Look at comparison function.
+
+--------------   Wis-tar and Wis-untar
+tar to compress files 
+fprintf fputs for ascii
+store a number as a binary representation? - use fwrite
+
+here's the command i used for the file.
+gcc -o wis-tarex wis-tarex.c -Wall -Werror
+ % ./wis-tarex test-bin.tar
+ % hexdump -C test-bin.tar
+00000000  06 00 00 00 00 00 00 00                           |........|
+00000008
+// why is 06 in the leading spot? little endian
+
+
+
+`

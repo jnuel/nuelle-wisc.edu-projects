@@ -1,0 +1,1310 @@
+
+fs/single_job_long:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <long_workload>:
+long_workload():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:9
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 10             	sub    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:10
+   6:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:11
+   d:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+  14:	eb 11                	jmp    27 <long_workload+0x27>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:12 (discriminator 3)
+  16:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  19:	0f af 45 f8          	imul   -0x8(%ebp),%eax
+  1d:	83 c0 01             	add    $0x1,%eax
+  20:	01 45 f8             	add    %eax,-0x8(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:11 (discriminator 3)
+  23:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:11 (discriminator 1)
+  27:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  2a:	3b 45 08             	cmp    0x8(%ebp),%eax
+  2d:	7c e7                	jl     16 <long_workload+0x16>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:13
+  2f:	8b 45 f8             	mov    -0x8(%ebp),%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:14
+  32:	c9                   	leave  
+  33:	c3                   	ret    
+
+00000034 <main>:
+main():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:18
+  34:	8d 4c 24 04          	lea    0x4(%esp),%ecx
+  38:	83 e4 f0             	and    $0xfffffff0,%esp
+  3b:	ff 71 fc             	pushl  -0x4(%ecx)
+  3e:	55                   	push   %ebp
+  3f:	89 e5                	mov    %esp,%ebp
+  41:	51                   	push   %ecx
+  42:	81 ec 14 0c 00 00    	sub    $0xc14,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:21
+  48:	83 ec 0c             	sub    $0xc,%esp
+  4b:	6a 0a                	push   $0xa
+  4d:	e8 02 06 00 00       	call   654 <sleep>
+  52:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:23
+  55:	83 ec 0c             	sub    $0xc,%esp
+  58:	68 00 b4 c4 04       	push   $0x4c4b400
+  5d:	e8 9e ff ff ff       	call   0 <long_workload>
+  62:	83 c4 10             	add    $0x10,%esp
+  65:	89 45 f4             	mov    %eax,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:24
+  68:	83 ec 0c             	sub    $0xc,%esp
+  6b:	8d 85 ec f3 ff ff    	lea    -0xc14(%ebp),%eax
+  71:	50                   	push   %eax
+  72:	e8 ed 05 00 00       	call   664 <getprocinfo>
+  77:	83 c4 10             	add    $0x10,%esp
+  7a:	85 c0                	test   %eax,%eax
+  7c:	74 23                	je     a1 <main+0x6d>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:24 (discriminator 1)
+  7e:	83 ec 0c             	sub    $0xc,%esp
+  81:	68 00 0b 00 00       	push   $0xb00
+  86:	6a 18                	push   $0x18
+  88:	68 0c 0b 00 00       	push   $0xb0c
+  8d:	68 24 0b 00 00       	push   $0xb24
+  92:	6a 01                	push   $0x1
+  94:	e8 ae 06 00 00       	call   747 <printf>
+  99:	83 c4 20             	add    $0x20,%esp
+  9c:	e8 23 05 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:26
+  a1:	e8 9e 05 00 00       	call   644 <getpid>
+  a6:	89 45 ec             	mov    %eax,-0x14(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:27
+  a9:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
+  b0:	e9 97 02 00 00       	jmp    34c <main+0x318>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:28
+  b5:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  b8:	8b 84 85 ec f3 ff ff 	mov    -0xc14(%ebp,%eax,4),%eax
+  bf:	85 c0                	test   %eax,%eax
+  c1:	0f 84 81 02 00 00    	je     348 <main+0x314>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:29
+  c7:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  ca:	83 c0 40             	add    $0x40,%eax
+  cd:	8b 84 85 ec f3 ff ff 	mov    -0xc14(%ebp,%eax,4),%eax
+  d4:	83 ec 04             	sub    $0x4,%esp
+  d7:	50                   	push   %eax
+  d8:	68 54 0b 00 00       	push   $0xb54
+  dd:	6a 01                	push   $0x1
+  df:	e8 63 06 00 00       	call   747 <printf>
+  e4:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:30
+  e7:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  ea:	83 c0 40             	add    $0x40,%eax
+  ed:	8b 84 85 ec f3 ff ff 	mov    -0xc14(%ebp,%eax,4),%eax
+  f4:	39 45 ec             	cmp    %eax,-0x14(%ebp)
+  f7:	0f 85 0a 02 00 00    	jne    307 <main+0x2d3>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:31
+  fd:	c7 45 f0 03 00 00 00 	movl   $0x3,-0x10(%ebp)
+ 104:	eb 32                	jmp    138 <main+0x104>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:32 (discriminator 3)
+ 106:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 109:	8d 14 85 00 00 00 00 	lea    0x0(,%eax,4),%edx
+ 110:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 113:	01 d0                	add    %edx,%eax
+ 115:	05 00 01 00 00       	add    $0x100,%eax
+ 11a:	8b 84 85 ec f3 ff ff 	mov    -0xc14(%ebp,%eax,4),%eax
+ 121:	50                   	push   %eax
+ 122:	ff 75 f0             	pushl  -0x10(%ebp)
+ 125:	68 5d 0b 00 00       	push   $0xb5d
+ 12a:	6a 01                	push   $0x1
+ 12c:	e8 16 06 00 00       	call   747 <printf>
+ 131:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:31 (discriminator 3)
+ 134:	83 6d f0 01          	subl   $0x1,-0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:31 (discriminator 1)
+ 138:	83 7d f0 00          	cmpl   $0x0,-0x10(%ebp)
+ 13c:	79 c8                	jns    106 <main+0xd2>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:36
+ 13e:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 141:	c1 e0 04             	shl    $0x4,%eax
+ 144:	8d 4d f8             	lea    -0x8(%ebp),%ecx
+ 147:	01 c8                	add    %ecx,%eax
+ 149:	2d 00 08 00 00       	sub    $0x800,%eax
+ 14e:	8b 00                	mov    (%eax),%eax
+ 150:	83 f8 08             	cmp    $0x8,%eax
+ 153:	74 23                	je     178 <main+0x144>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:36 (discriminator 1)
+ 155:	83 ec 0c             	sub    $0xc,%esp
+ 158:	68 78 0b 00 00       	push   $0xb78
+ 15d:	6a 25                	push   $0x25
+ 15f:	68 0c 0b 00 00       	push   $0xb0c
+ 164:	68 ac 0b 00 00       	push   $0xbac
+ 169:	6a 01                	push   $0x1
+ 16b:	e8 d7 05 00 00       	call   747 <printf>
+ 170:	83 c4 20             	add    $0x20,%esp
+ 173:	e8 4c 04 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:38
+ 178:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 17b:	c1 e0 04             	shl    $0x4,%eax
+ 17e:	8d 4d f8             	lea    -0x8(%ebp),%ecx
+ 181:	01 c8                	add    %ecx,%eax
+ 183:	2d 00 04 00 00       	sub    $0x400,%eax
+ 188:	8b 00                	mov    (%eax),%eax
+ 18a:	85 c0                	test   %eax,%eax
+ 18c:	74 23                	je     1b1 <main+0x17d>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:38 (discriminator 1)
+ 18e:	83 ec 0c             	sub    $0xc,%esp
+ 191:	68 dc 0b 00 00       	push   $0xbdc
+ 196:	6a 27                	push   $0x27
+ 198:	68 0c 0b 00 00       	push   $0xb0c
+ 19d:	68 10 0c 00 00       	push   $0xc10
+ 1a2:	6a 01                	push   $0x1
+ 1a4:	e8 9e 05 00 00       	call   747 <printf>
+ 1a9:	83 c4 20             	add    $0x20,%esp
+ 1ac:	e8 13 04 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:40
+ 1b1:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 1b4:	c1 e0 04             	shl    $0x4,%eax
+ 1b7:	8d 55 f8             	lea    -0x8(%ebp),%edx
+ 1ba:	01 d0                	add    %edx,%eax
+ 1bc:	2d 04 08 00 00       	sub    $0x804,%eax
+ 1c1:	8b 00                	mov    (%eax),%eax
+ 1c3:	83 f8 10             	cmp    $0x10,%eax
+ 1c6:	74 23                	je     1eb <main+0x1b7>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:40 (discriminator 1)
+ 1c8:	83 ec 0c             	sub    $0xc,%esp
+ 1cb:	68 44 0c 00 00       	push   $0xc44
+ 1d0:	6a 29                	push   $0x29
+ 1d2:	68 0c 0b 00 00       	push   $0xb0c
+ 1d7:	68 78 0c 00 00       	push   $0xc78
+ 1dc:	6a 01                	push   $0x1
+ 1de:	e8 64 05 00 00       	call   747 <printf>
+ 1e3:	83 c4 20             	add    $0x20,%esp
+ 1e6:	e8 d9 03 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:42
+ 1eb:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 1ee:	c1 e0 04             	shl    $0x4,%eax
+ 1f1:	8d 4d f8             	lea    -0x8(%ebp),%ecx
+ 1f4:	01 c8                	add    %ecx,%eax
+ 1f6:	2d 04 04 00 00       	sub    $0x404,%eax
+ 1fb:	8b 00                	mov    (%eax),%eax
+ 1fd:	85 c0                	test   %eax,%eax
+ 1ff:	74 23                	je     224 <main+0x1f0>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:42 (discriminator 1)
+ 201:	83 ec 0c             	sub    $0xc,%esp
+ 204:	68 a8 0c 00 00       	push   $0xca8
+ 209:	6a 2b                	push   $0x2b
+ 20b:	68 0c 0b 00 00       	push   $0xb0c
+ 210:	68 dc 0c 00 00       	push   $0xcdc
+ 215:	6a 01                	push   $0x1
+ 217:	e8 2b 05 00 00       	call   747 <printf>
+ 21c:	83 c4 20             	add    $0x20,%esp
+ 21f:	e8 a0 03 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:44
+ 224:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 227:	c1 e0 04             	shl    $0x4,%eax
+ 22a:	8d 55 f8             	lea    -0x8(%ebp),%edx
+ 22d:	01 d0                	add    %edx,%eax
+ 22f:	2d 08 08 00 00       	sub    $0x808,%eax
+ 234:	8b 00                	mov    (%eax),%eax
+ 236:	83 f8 20             	cmp    $0x20,%eax
+ 239:	74 23                	je     25e <main+0x22a>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:44 (discriminator 1)
+ 23b:	83 ec 0c             	sub    $0xc,%esp
+ 23e:	68 10 0d 00 00       	push   $0xd10
+ 243:	6a 2d                	push   $0x2d
+ 245:	68 0c 0b 00 00       	push   $0xb0c
+ 24a:	68 44 0d 00 00       	push   $0xd44
+ 24f:	6a 01                	push   $0x1
+ 251:	e8 f1 04 00 00       	call   747 <printf>
+ 256:	83 c4 20             	add    $0x20,%esp
+ 259:	e8 66 03 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:46
+ 25e:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 261:	c1 e0 04             	shl    $0x4,%eax
+ 264:	8d 4d f8             	lea    -0x8(%ebp),%ecx
+ 267:	01 c8                	add    %ecx,%eax
+ 269:	2d 08 04 00 00       	sub    $0x408,%eax
+ 26e:	8b 00                	mov    (%eax),%eax
+ 270:	85 c0                	test   %eax,%eax
+ 272:	74 23                	je     297 <main+0x263>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:46 (discriminator 1)
+ 274:	83 ec 0c             	sub    $0xc,%esp
+ 277:	68 74 0d 00 00       	push   $0xd74
+ 27c:	6a 2f                	push   $0x2f
+ 27e:	68 0c 0b 00 00       	push   $0xb0c
+ 283:	68 a8 0d 00 00       	push   $0xda8
+ 288:	6a 01                	push   $0x1
+ 28a:	e8 b8 04 00 00       	call   747 <printf>
+ 28f:	83 c4 20             	add    $0x20,%esp
+ 292:	e8 2d 03 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:48
+ 297:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 29a:	83 c0 40             	add    $0x40,%eax
+ 29d:	c1 e0 04             	shl    $0x4,%eax
+ 2a0:	8d 55 f8             	lea    -0x8(%ebp),%edx
+ 2a3:	01 d0                	add    %edx,%eax
+ 2a5:	2d 0c 0c 00 00       	sub    $0xc0c,%eax
+ 2aa:	8b 00                	mov    (%eax),%eax
+ 2ac:	85 c0                	test   %eax,%eax
+ 2ae:	7f 23                	jg     2d3 <main+0x29f>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:48 (discriminator 1)
+ 2b0:	83 ec 0c             	sub    $0xc,%esp
+ 2b3:	68 dc 0d 00 00       	push   $0xddc
+ 2b8:	6a 31                	push   $0x31
+ 2ba:	68 0c 0b 00 00       	push   $0xb0c
+ 2bf:	68 20 0e 00 00       	push   $0xe20
+ 2c4:	6a 01                	push   $0x1
+ 2c6:	e8 7c 04 00 00       	call   747 <printf>
+ 2cb:	83 c4 20             	add    $0x20,%esp
+ 2ce:	e8 f1 02 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:50
+ 2d3:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 2d6:	83 e8 80             	sub    $0xffffff80,%eax
+ 2d9:	8b 84 85 ec f3 ff ff 	mov    -0xc14(%ebp,%eax,4),%eax
+ 2e0:	85 c0                	test   %eax,%eax
+ 2e2:	74 64                	je     348 <main+0x314>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:50 (discriminator 1)
+ 2e4:	83 ec 0c             	sub    $0xc,%esp
+ 2e7:	68 50 0e 00 00       	push   $0xe50
+ 2ec:	6a 32                	push   $0x32
+ 2ee:	68 0c 0b 00 00       	push   $0xb0c
+ 2f3:	68 80 0e 00 00       	push   $0xe80
+ 2f8:	6a 01                	push   $0x1
+ 2fa:	e8 48 04 00 00       	call   747 <printf>
+ 2ff:	83 c4 20             	add    $0x20,%esp
+ 302:	e8 bd 02 00 00       	call   5c4 <exit>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:52
+ 307:	c7 45 f0 03 00 00 00 	movl   $0x3,-0x10(%ebp)
+ 30e:	eb 32                	jmp    342 <main+0x30e>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:53 (discriminator 3)
+ 310:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 313:	8d 14 85 00 00 00 00 	lea    0x0(,%eax,4),%edx
+ 31a:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 31d:	01 d0                	add    %edx,%eax
+ 31f:	05 00 01 00 00       	add    $0x100,%eax
+ 324:	8b 84 85 ec f3 ff ff 	mov    -0xc14(%ebp,%eax,4),%eax
+ 32b:	50                   	push   %eax
+ 32c:	ff 75 f0             	pushl  -0x10(%ebp)
+ 32f:	68 5d 0b 00 00       	push   $0xb5d
+ 334:	6a 01                	push   $0x1
+ 336:	e8 0c 04 00 00       	call   747 <printf>
+ 33b:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:52 (discriminator 3)
+ 33e:	83 6d f0 01          	subl   $0x1,-0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:52 (discriminator 1)
+ 342:	83 7d f0 00          	cmpl   $0x0,-0x10(%ebp)
+ 346:	79 c8                	jns    310 <main+0x2dc>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:27 (discriminator 2)
+ 348:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:27 (discriminator 1)
+ 34c:	83 7d f4 3f          	cmpl   $0x3f,-0xc(%ebp)
+ 350:	0f 8e 5f fd ff ff    	jle    b5 <main+0x81>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:59
+ 356:	83 ec 08             	sub    $0x8,%esp
+ 359:	68 ae 0e 00 00       	push   $0xeae
+ 35e:	6a 01                	push   $0x1
+ 360:	e8 e2 03 00 00       	call   747 <printf>
+ 365:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/single_job_long.c:60
+ 368:	e8 57 02 00 00       	call   5c4 <exit>
+
+0000036d <stosb>:
+stosb():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/include/x86.h:46
+ 36d:	55                   	push   %ebp
+ 36e:	89 e5                	mov    %esp,%ebp
+ 370:	57                   	push   %edi
+ 371:	53                   	push   %ebx
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/include/x86.h:47
+ 372:	8b 4d 08             	mov    0x8(%ebp),%ecx
+ 375:	8b 55 10             	mov    0x10(%ebp),%edx
+ 378:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 37b:	89 cb                	mov    %ecx,%ebx
+ 37d:	89 df                	mov    %ebx,%edi
+ 37f:	89 d1                	mov    %edx,%ecx
+ 381:	fc                   	cld    
+ 382:	f3 aa                	rep stos %al,%es:(%edi)
+ 384:	89 ca                	mov    %ecx,%edx
+ 386:	89 fb                	mov    %edi,%ebx
+ 388:	89 5d 08             	mov    %ebx,0x8(%ebp)
+ 38b:	89 55 10             	mov    %edx,0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/include/x86.h:51
+ 38e:	90                   	nop
+ 38f:	5b                   	pop    %ebx
+ 390:	5f                   	pop    %edi
+ 391:	5d                   	pop    %ebp
+ 392:	c3                   	ret    
+
+00000393 <strcpy>:
+strcpy():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:9
+ 393:	55                   	push   %ebp
+ 394:	89 e5                	mov    %esp,%ebp
+ 396:	83 ec 10             	sub    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:12
+ 399:	8b 45 08             	mov    0x8(%ebp),%eax
+ 39c:	89 45 fc             	mov    %eax,-0x4(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:13
+ 39f:	90                   	nop
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:13 (discriminator 1)
+ 3a0:	8b 55 0c             	mov    0xc(%ebp),%edx
+ 3a3:	8d 42 01             	lea    0x1(%edx),%eax
+ 3a6:	89 45 0c             	mov    %eax,0xc(%ebp)
+ 3a9:	8b 45 08             	mov    0x8(%ebp),%eax
+ 3ac:	8d 48 01             	lea    0x1(%eax),%ecx
+ 3af:	89 4d 08             	mov    %ecx,0x8(%ebp)
+ 3b2:	0f b6 12             	movzbl (%edx),%edx
+ 3b5:	88 10                	mov    %dl,(%eax)
+ 3b7:	0f b6 00             	movzbl (%eax),%eax
+ 3ba:	84 c0                	test   %al,%al
+ 3bc:	75 e2                	jne    3a0 <strcpy+0xd>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:15
+ 3be:	8b 45 fc             	mov    -0x4(%ebp),%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:16
+ 3c1:	c9                   	leave  
+ 3c2:	c3                   	ret    
+
+000003c3 <strcmp>:
+strcmp():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:20
+ 3c3:	55                   	push   %ebp
+ 3c4:	89 e5                	mov    %esp,%ebp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:21
+ 3c6:	eb 08                	jmp    3d0 <strcmp+0xd>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:22
+ 3c8:	83 45 08 01          	addl   $0x1,0x8(%ebp)
+ 3cc:	83 45 0c 01          	addl   $0x1,0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:21
+ 3d0:	8b 45 08             	mov    0x8(%ebp),%eax
+ 3d3:	0f b6 00             	movzbl (%eax),%eax
+ 3d6:	84 c0                	test   %al,%al
+ 3d8:	74 10                	je     3ea <strcmp+0x27>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:21 (discriminator 1)
+ 3da:	8b 45 08             	mov    0x8(%ebp),%eax
+ 3dd:	0f b6 10             	movzbl (%eax),%edx
+ 3e0:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 3e3:	0f b6 00             	movzbl (%eax),%eax
+ 3e6:	38 c2                	cmp    %al,%dl
+ 3e8:	74 de                	je     3c8 <strcmp+0x5>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:23
+ 3ea:	8b 45 08             	mov    0x8(%ebp),%eax
+ 3ed:	0f b6 00             	movzbl (%eax),%eax
+ 3f0:	0f b6 d0             	movzbl %al,%edx
+ 3f3:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 3f6:	0f b6 00             	movzbl (%eax),%eax
+ 3f9:	0f b6 c0             	movzbl %al,%eax
+ 3fc:	29 c2                	sub    %eax,%edx
+ 3fe:	89 d0                	mov    %edx,%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:24
+ 400:	5d                   	pop    %ebp
+ 401:	c3                   	ret    
+
+00000402 <strlen>:
+strlen():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:28
+ 402:	55                   	push   %ebp
+ 403:	89 e5                	mov    %esp,%ebp
+ 405:	83 ec 10             	sub    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:31
+ 408:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 40f:	eb 04                	jmp    415 <strlen+0x13>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:31 (discriminator 3)
+ 411:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:31 (discriminator 1)
+ 415:	8b 55 fc             	mov    -0x4(%ebp),%edx
+ 418:	8b 45 08             	mov    0x8(%ebp),%eax
+ 41b:	01 d0                	add    %edx,%eax
+ 41d:	0f b6 00             	movzbl (%eax),%eax
+ 420:	84 c0                	test   %al,%al
+ 422:	75 ed                	jne    411 <strlen+0xf>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:33
+ 424:	8b 45 fc             	mov    -0x4(%ebp),%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:34
+ 427:	c9                   	leave  
+ 428:	c3                   	ret    
+
+00000429 <memset>:
+memset():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:38
+ 429:	55                   	push   %ebp
+ 42a:	89 e5                	mov    %esp,%ebp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:39
+ 42c:	8b 45 10             	mov    0x10(%ebp),%eax
+ 42f:	50                   	push   %eax
+ 430:	ff 75 0c             	pushl  0xc(%ebp)
+ 433:	ff 75 08             	pushl  0x8(%ebp)
+ 436:	e8 32 ff ff ff       	call   36d <stosb>
+ 43b:	83 c4 0c             	add    $0xc,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:40
+ 43e:	8b 45 08             	mov    0x8(%ebp),%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:41
+ 441:	c9                   	leave  
+ 442:	c3                   	ret    
+
+00000443 <strchr>:
+strchr():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:45
+ 443:	55                   	push   %ebp
+ 444:	89 e5                	mov    %esp,%ebp
+ 446:	83 ec 04             	sub    $0x4,%esp
+ 449:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 44c:	88 45 fc             	mov    %al,-0x4(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:46
+ 44f:	eb 14                	jmp    465 <strchr+0x22>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:47
+ 451:	8b 45 08             	mov    0x8(%ebp),%eax
+ 454:	0f b6 00             	movzbl (%eax),%eax
+ 457:	38 45 fc             	cmp    %al,-0x4(%ebp)
+ 45a:	75 05                	jne    461 <strchr+0x1e>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:48
+ 45c:	8b 45 08             	mov    0x8(%ebp),%eax
+ 45f:	eb 13                	jmp    474 <strchr+0x31>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:46
+ 461:	83 45 08 01          	addl   $0x1,0x8(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:46 (discriminator 1)
+ 465:	8b 45 08             	mov    0x8(%ebp),%eax
+ 468:	0f b6 00             	movzbl (%eax),%eax
+ 46b:	84 c0                	test   %al,%al
+ 46d:	75 e2                	jne    451 <strchr+0xe>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:49
+ 46f:	b8 00 00 00 00       	mov    $0x0,%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:50
+ 474:	c9                   	leave  
+ 475:	c3                   	ret    
+
+00000476 <gets>:
+gets():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:54
+ 476:	55                   	push   %ebp
+ 477:	89 e5                	mov    %esp,%ebp
+ 479:	83 ec 18             	sub    $0x18,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:58
+ 47c:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
+ 483:	eb 42                	jmp    4c7 <gets+0x51>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:59
+ 485:	83 ec 04             	sub    $0x4,%esp
+ 488:	6a 01                	push   $0x1
+ 48a:	8d 45 ef             	lea    -0x11(%ebp),%eax
+ 48d:	50                   	push   %eax
+ 48e:	6a 00                	push   $0x0
+ 490:	e8 47 01 00 00       	call   5dc <read>
+ 495:	83 c4 10             	add    $0x10,%esp
+ 498:	89 45 f0             	mov    %eax,-0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:60
+ 49b:	83 7d f0 00          	cmpl   $0x0,-0x10(%ebp)
+ 49f:	7e 33                	jle    4d4 <gets+0x5e>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:62
+ 4a1:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 4a4:	8d 50 01             	lea    0x1(%eax),%edx
+ 4a7:	89 55 f4             	mov    %edx,-0xc(%ebp)
+ 4aa:	89 c2                	mov    %eax,%edx
+ 4ac:	8b 45 08             	mov    0x8(%ebp),%eax
+ 4af:	01 c2                	add    %eax,%edx
+ 4b1:	0f b6 45 ef          	movzbl -0x11(%ebp),%eax
+ 4b5:	88 02                	mov    %al,(%edx)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:63
+ 4b7:	0f b6 45 ef          	movzbl -0x11(%ebp),%eax
+ 4bb:	3c 0a                	cmp    $0xa,%al
+ 4bd:	74 16                	je     4d5 <gets+0x5f>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:63 (discriminator 1)
+ 4bf:	0f b6 45 ef          	movzbl -0x11(%ebp),%eax
+ 4c3:	3c 0d                	cmp    $0xd,%al
+ 4c5:	74 0e                	je     4d5 <gets+0x5f>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:58 (discriminator 1)
+ 4c7:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 4ca:	83 c0 01             	add    $0x1,%eax
+ 4cd:	39 45 0c             	cmp    %eax,0xc(%ebp)
+ 4d0:	7f b3                	jg     485 <gets+0xf>
+ 4d2:	eb 01                	jmp    4d5 <gets+0x5f>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:61
+ 4d4:	90                   	nop
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:66
+ 4d5:	8b 55 f4             	mov    -0xc(%ebp),%edx
+ 4d8:	8b 45 08             	mov    0x8(%ebp),%eax
+ 4db:	01 d0                	add    %edx,%eax
+ 4dd:	c6 00 00             	movb   $0x0,(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:67
+ 4e0:	8b 45 08             	mov    0x8(%ebp),%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:68
+ 4e3:	c9                   	leave  
+ 4e4:	c3                   	ret    
+
+000004e5 <stat>:
+stat():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:72
+ 4e5:	55                   	push   %ebp
+ 4e6:	89 e5                	mov    %esp,%ebp
+ 4e8:	83 ec 18             	sub    $0x18,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:76
+ 4eb:	83 ec 08             	sub    $0x8,%esp
+ 4ee:	6a 00                	push   $0x0
+ 4f0:	ff 75 08             	pushl  0x8(%ebp)
+ 4f3:	e8 0c 01 00 00       	call   604 <open>
+ 4f8:	83 c4 10             	add    $0x10,%esp
+ 4fb:	89 45 f4             	mov    %eax,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:77
+ 4fe:	83 7d f4 00          	cmpl   $0x0,-0xc(%ebp)
+ 502:	79 07                	jns    50b <stat+0x26>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:78
+ 504:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 509:	eb 25                	jmp    530 <stat+0x4b>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:79
+ 50b:	83 ec 08             	sub    $0x8,%esp
+ 50e:	ff 75 0c             	pushl  0xc(%ebp)
+ 511:	ff 75 f4             	pushl  -0xc(%ebp)
+ 514:	e8 03 01 00 00       	call   61c <fstat>
+ 519:	83 c4 10             	add    $0x10,%esp
+ 51c:	89 45 f0             	mov    %eax,-0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:80
+ 51f:	83 ec 0c             	sub    $0xc,%esp
+ 522:	ff 75 f4             	pushl  -0xc(%ebp)
+ 525:	e8 c2 00 00 00       	call   5ec <close>
+ 52a:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:81
+ 52d:	8b 45 f0             	mov    -0x10(%ebp),%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:82
+ 530:	c9                   	leave  
+ 531:	c3                   	ret    
+
+00000532 <atoi>:
+atoi():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:86
+ 532:	55                   	push   %ebp
+ 533:	89 e5                	mov    %esp,%ebp
+ 535:	83 ec 10             	sub    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:89
+ 538:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:90
+ 53f:	eb 25                	jmp    566 <atoi+0x34>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:91
+ 541:	8b 55 fc             	mov    -0x4(%ebp),%edx
+ 544:	89 d0                	mov    %edx,%eax
+ 546:	c1 e0 02             	shl    $0x2,%eax
+ 549:	01 d0                	add    %edx,%eax
+ 54b:	01 c0                	add    %eax,%eax
+ 54d:	89 c1                	mov    %eax,%ecx
+ 54f:	8b 45 08             	mov    0x8(%ebp),%eax
+ 552:	8d 50 01             	lea    0x1(%eax),%edx
+ 555:	89 55 08             	mov    %edx,0x8(%ebp)
+ 558:	0f b6 00             	movzbl (%eax),%eax
+ 55b:	0f be c0             	movsbl %al,%eax
+ 55e:	01 c8                	add    %ecx,%eax
+ 560:	83 e8 30             	sub    $0x30,%eax
+ 563:	89 45 fc             	mov    %eax,-0x4(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:90
+ 566:	8b 45 08             	mov    0x8(%ebp),%eax
+ 569:	0f b6 00             	movzbl (%eax),%eax
+ 56c:	3c 2f                	cmp    $0x2f,%al
+ 56e:	7e 0a                	jle    57a <atoi+0x48>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:90 (discriminator 1)
+ 570:	8b 45 08             	mov    0x8(%ebp),%eax
+ 573:	0f b6 00             	movzbl (%eax),%eax
+ 576:	3c 39                	cmp    $0x39,%al
+ 578:	7e c7                	jle    541 <atoi+0xf>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:92
+ 57a:	8b 45 fc             	mov    -0x4(%ebp),%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:93
+ 57d:	c9                   	leave  
+ 57e:	c3                   	ret    
+
+0000057f <memmove>:
+memmove():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:97
+ 57f:	55                   	push   %ebp
+ 580:	89 e5                	mov    %esp,%ebp
+ 582:	83 ec 10             	sub    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:100
+ 585:	8b 45 08             	mov    0x8(%ebp),%eax
+ 588:	89 45 fc             	mov    %eax,-0x4(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:101
+ 58b:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 58e:	89 45 f8             	mov    %eax,-0x8(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:102
+ 591:	eb 17                	jmp    5aa <memmove+0x2b>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:103
+ 593:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 596:	8d 42 01             	lea    0x1(%edx),%eax
+ 599:	89 45 f8             	mov    %eax,-0x8(%ebp)
+ 59c:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 59f:	8d 48 01             	lea    0x1(%eax),%ecx
+ 5a2:	89 4d fc             	mov    %ecx,-0x4(%ebp)
+ 5a5:	0f b6 12             	movzbl (%edx),%edx
+ 5a8:	88 10                	mov    %dl,(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:102
+ 5aa:	8b 45 10             	mov    0x10(%ebp),%eax
+ 5ad:	8d 50 ff             	lea    -0x1(%eax),%edx
+ 5b0:	89 55 10             	mov    %edx,0x10(%ebp)
+ 5b3:	85 c0                	test   %eax,%eax
+ 5b5:	7f dc                	jg     593 <memmove+0x14>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:104
+ 5b7:	8b 45 08             	mov    0x8(%ebp),%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/ulib.c:105
+ 5ba:	c9                   	leave  
+ 5bb:	c3                   	ret    
+
+000005bc <fork>:
+fork():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:11
+ 5bc:	b8 01 00 00 00       	mov    $0x1,%eax
+ 5c1:	cd 40                	int    $0x40
+ 5c3:	c3                   	ret    
+
+000005c4 <exit>:
+exit():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:12
+ 5c4:	b8 02 00 00 00       	mov    $0x2,%eax
+ 5c9:	cd 40                	int    $0x40
+ 5cb:	c3                   	ret    
+
+000005cc <wait>:
+wait():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:13
+ 5cc:	b8 03 00 00 00       	mov    $0x3,%eax
+ 5d1:	cd 40                	int    $0x40
+ 5d3:	c3                   	ret    
+
+000005d4 <pipe>:
+pipe():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:14
+ 5d4:	b8 04 00 00 00       	mov    $0x4,%eax
+ 5d9:	cd 40                	int    $0x40
+ 5db:	c3                   	ret    
+
+000005dc <read>:
+read():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:15
+ 5dc:	b8 06 00 00 00       	mov    $0x6,%eax
+ 5e1:	cd 40                	int    $0x40
+ 5e3:	c3                   	ret    
+
+000005e4 <write>:
+write():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:16
+ 5e4:	b8 05 00 00 00       	mov    $0x5,%eax
+ 5e9:	cd 40                	int    $0x40
+ 5eb:	c3                   	ret    
+
+000005ec <close>:
+close():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:17
+ 5ec:	b8 07 00 00 00       	mov    $0x7,%eax
+ 5f1:	cd 40                	int    $0x40
+ 5f3:	c3                   	ret    
+
+000005f4 <kill>:
+kill():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:18
+ 5f4:	b8 08 00 00 00       	mov    $0x8,%eax
+ 5f9:	cd 40                	int    $0x40
+ 5fb:	c3                   	ret    
+
+000005fc <exec>:
+exec():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:19
+ 5fc:	b8 09 00 00 00       	mov    $0x9,%eax
+ 601:	cd 40                	int    $0x40
+ 603:	c3                   	ret    
+
+00000604 <open>:
+open():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:20
+ 604:	b8 0a 00 00 00       	mov    $0xa,%eax
+ 609:	cd 40                	int    $0x40
+ 60b:	c3                   	ret    
+
+0000060c <mknod>:
+mknod():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:21
+ 60c:	b8 0b 00 00 00       	mov    $0xb,%eax
+ 611:	cd 40                	int    $0x40
+ 613:	c3                   	ret    
+
+00000614 <unlink>:
+unlink():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:22
+ 614:	b8 0c 00 00 00       	mov    $0xc,%eax
+ 619:	cd 40                	int    $0x40
+ 61b:	c3                   	ret    
+
+0000061c <fstat>:
+fstat():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:23
+ 61c:	b8 0d 00 00 00       	mov    $0xd,%eax
+ 621:	cd 40                	int    $0x40
+ 623:	c3                   	ret    
+
+00000624 <link>:
+link():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:24
+ 624:	b8 0e 00 00 00       	mov    $0xe,%eax
+ 629:	cd 40                	int    $0x40
+ 62b:	c3                   	ret    
+
+0000062c <mkdir>:
+mkdir():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:25
+ 62c:	b8 0f 00 00 00       	mov    $0xf,%eax
+ 631:	cd 40                	int    $0x40
+ 633:	c3                   	ret    
+
+00000634 <chdir>:
+chdir():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:26
+ 634:	b8 10 00 00 00       	mov    $0x10,%eax
+ 639:	cd 40                	int    $0x40
+ 63b:	c3                   	ret    
+
+0000063c <dup>:
+dup():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:27
+ 63c:	b8 11 00 00 00       	mov    $0x11,%eax
+ 641:	cd 40                	int    $0x40
+ 643:	c3                   	ret    
+
+00000644 <getpid>:
+getpid():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:28
+ 644:	b8 12 00 00 00       	mov    $0x12,%eax
+ 649:	cd 40                	int    $0x40
+ 64b:	c3                   	ret    
+
+0000064c <sbrk>:
+sbrk():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:29
+ 64c:	b8 13 00 00 00       	mov    $0x13,%eax
+ 651:	cd 40                	int    $0x40
+ 653:	c3                   	ret    
+
+00000654 <sleep>:
+sleep():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:30
+ 654:	b8 14 00 00 00       	mov    $0x14,%eax
+ 659:	cd 40                	int    $0x40
+ 65b:	c3                   	ret    
+
+0000065c <uptime>:
+uptime():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:31
+ 65c:	b8 15 00 00 00       	mov    $0x15,%eax
+ 661:	cd 40                	int    $0x40
+ 663:	c3                   	ret    
+
+00000664 <getprocinfo>:
+getprocinfo():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:32
+ 664:	b8 16 00 00 00       	mov    $0x16,%eax
+ 669:	cd 40                	int    $0x40
+ 66b:	c3                   	ret    
+
+0000066c <boostproc>:
+boostproc():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/usys.S:33
+ 66c:	b8 17 00 00 00       	mov    $0x17,%eax
+ 671:	cd 40                	int    $0x40
+ 673:	c3                   	ret    
+
+00000674 <putc>:
+putc():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:7
+ 674:	55                   	push   %ebp
+ 675:	89 e5                	mov    %esp,%ebp
+ 677:	83 ec 18             	sub    $0x18,%esp
+ 67a:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 67d:	88 45 f4             	mov    %al,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:8
+ 680:	83 ec 04             	sub    $0x4,%esp
+ 683:	6a 01                	push   $0x1
+ 685:	8d 45 f4             	lea    -0xc(%ebp),%eax
+ 688:	50                   	push   %eax
+ 689:	ff 75 08             	pushl  0x8(%ebp)
+ 68c:	e8 53 ff ff ff       	call   5e4 <write>
+ 691:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:9
+ 694:	90                   	nop
+ 695:	c9                   	leave  
+ 696:	c3                   	ret    
+
+00000697 <printint>:
+printint():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:13
+ 697:	55                   	push   %ebp
+ 698:	89 e5                	mov    %esp,%ebp
+ 69a:	83 ec 28             	sub    $0x28,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:19
+ 69d:	c7 45 f0 00 00 00 00 	movl   $0x0,-0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:20
+ 6a4:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 6a8:	74 17                	je     6c1 <printint+0x2a>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:20 (discriminator 1)
+ 6aa:	83 7d 0c 00          	cmpl   $0x0,0xc(%ebp)
+ 6ae:	79 11                	jns    6c1 <printint+0x2a>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:21
+ 6b0:	c7 45 f0 01 00 00 00 	movl   $0x1,-0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:22
+ 6b7:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 6ba:	f7 d8                	neg    %eax
+ 6bc:	89 45 ec             	mov    %eax,-0x14(%ebp)
+ 6bf:	eb 06                	jmp    6c7 <printint+0x30>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:24
+ 6c1:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 6c4:	89 45 ec             	mov    %eax,-0x14(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:27
+ 6c7:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:29 (discriminator 1)
+ 6ce:	8b 4d 10             	mov    0x10(%ebp),%ecx
+ 6d1:	8b 45 ec             	mov    -0x14(%ebp),%eax
+ 6d4:	ba 00 00 00 00       	mov    $0x0,%edx
+ 6d9:	f7 f1                	div    %ecx
+ 6db:	89 d1                	mov    %edx,%ecx
+ 6dd:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 6e0:	8d 50 01             	lea    0x1(%eax),%edx
+ 6e3:	89 55 f4             	mov    %edx,-0xc(%ebp)
+ 6e6:	0f b6 91 28 11 00 00 	movzbl 0x1128(%ecx),%edx
+ 6ed:	88 54 05 dc          	mov    %dl,-0x24(%ebp,%eax,1)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:30 (discriminator 1)
+ 6f1:	8b 4d 10             	mov    0x10(%ebp),%ecx
+ 6f4:	8b 45 ec             	mov    -0x14(%ebp),%eax
+ 6f7:	ba 00 00 00 00       	mov    $0x0,%edx
+ 6fc:	f7 f1                	div    %ecx
+ 6fe:	89 45 ec             	mov    %eax,-0x14(%ebp)
+ 701:	83 7d ec 00          	cmpl   $0x0,-0x14(%ebp)
+ 705:	75 c7                	jne    6ce <printint+0x37>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:31
+ 707:	83 7d f0 00          	cmpl   $0x0,-0x10(%ebp)
+ 70b:	74 2d                	je     73a <printint+0xa3>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:32
+ 70d:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 710:	8d 50 01             	lea    0x1(%eax),%edx
+ 713:	89 55 f4             	mov    %edx,-0xc(%ebp)
+ 716:	c6 44 05 dc 2d       	movb   $0x2d,-0x24(%ebp,%eax,1)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:34
+ 71b:	eb 1d                	jmp    73a <printint+0xa3>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:35
+ 71d:	8d 55 dc             	lea    -0x24(%ebp),%edx
+ 720:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 723:	01 d0                	add    %edx,%eax
+ 725:	0f b6 00             	movzbl (%eax),%eax
+ 728:	0f be c0             	movsbl %al,%eax
+ 72b:	83 ec 08             	sub    $0x8,%esp
+ 72e:	50                   	push   %eax
+ 72f:	ff 75 08             	pushl  0x8(%ebp)
+ 732:	e8 3d ff ff ff       	call   674 <putc>
+ 737:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:34
+ 73a:	83 6d f4 01          	subl   $0x1,-0xc(%ebp)
+ 73e:	83 7d f4 00          	cmpl   $0x0,-0xc(%ebp)
+ 742:	79 d9                	jns    71d <printint+0x86>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:36
+ 744:	90                   	nop
+ 745:	c9                   	leave  
+ 746:	c3                   	ret    
+
+00000747 <printf>:
+printf():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:41
+ 747:	55                   	push   %ebp
+ 748:	89 e5                	mov    %esp,%ebp
+ 74a:	83 ec 28             	sub    $0x28,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:46
+ 74d:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:47
+ 754:	8d 45 0c             	lea    0xc(%ebp),%eax
+ 757:	83 c0 04             	add    $0x4,%eax
+ 75a:	89 45 e8             	mov    %eax,-0x18(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:48
+ 75d:	c7 45 f0 00 00 00 00 	movl   $0x0,-0x10(%ebp)
+ 764:	e9 59 01 00 00       	jmp    8c2 <printf+0x17b>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:49
+ 769:	8b 55 0c             	mov    0xc(%ebp),%edx
+ 76c:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 76f:	01 d0                	add    %edx,%eax
+ 771:	0f b6 00             	movzbl (%eax),%eax
+ 774:	0f be c0             	movsbl %al,%eax
+ 777:	25 ff 00 00 00       	and    $0xff,%eax
+ 77c:	89 45 e4             	mov    %eax,-0x1c(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:50
+ 77f:	83 7d ec 00          	cmpl   $0x0,-0x14(%ebp)
+ 783:	75 2c                	jne    7b1 <printf+0x6a>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:51
+ 785:	83 7d e4 25          	cmpl   $0x25,-0x1c(%ebp)
+ 789:	75 0c                	jne    797 <printf+0x50>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:52
+ 78b:	c7 45 ec 25 00 00 00 	movl   $0x25,-0x14(%ebp)
+ 792:	e9 27 01 00 00       	jmp    8be <printf+0x177>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:54
+ 797:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 79a:	0f be c0             	movsbl %al,%eax
+ 79d:	83 ec 08             	sub    $0x8,%esp
+ 7a0:	50                   	push   %eax
+ 7a1:	ff 75 08             	pushl  0x8(%ebp)
+ 7a4:	e8 cb fe ff ff       	call   674 <putc>
+ 7a9:	83 c4 10             	add    $0x10,%esp
+ 7ac:	e9 0d 01 00 00       	jmp    8be <printf+0x177>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:56
+ 7b1:	83 7d ec 25          	cmpl   $0x25,-0x14(%ebp)
+ 7b5:	0f 85 03 01 00 00    	jne    8be <printf+0x177>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:57
+ 7bb:	83 7d e4 64          	cmpl   $0x64,-0x1c(%ebp)
+ 7bf:	75 1e                	jne    7df <printf+0x98>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:58
+ 7c1:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 7c4:	8b 00                	mov    (%eax),%eax
+ 7c6:	6a 01                	push   $0x1
+ 7c8:	6a 0a                	push   $0xa
+ 7ca:	50                   	push   %eax
+ 7cb:	ff 75 08             	pushl  0x8(%ebp)
+ 7ce:	e8 c4 fe ff ff       	call   697 <printint>
+ 7d3:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:59
+ 7d6:	83 45 e8 04          	addl   $0x4,-0x18(%ebp)
+ 7da:	e9 d8 00 00 00       	jmp    8b7 <printf+0x170>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:60
+ 7df:	83 7d e4 78          	cmpl   $0x78,-0x1c(%ebp)
+ 7e3:	74 06                	je     7eb <printf+0xa4>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:60 (discriminator 1)
+ 7e5:	83 7d e4 70          	cmpl   $0x70,-0x1c(%ebp)
+ 7e9:	75 1e                	jne    809 <printf+0xc2>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:61
+ 7eb:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 7ee:	8b 00                	mov    (%eax),%eax
+ 7f0:	6a 00                	push   $0x0
+ 7f2:	6a 10                	push   $0x10
+ 7f4:	50                   	push   %eax
+ 7f5:	ff 75 08             	pushl  0x8(%ebp)
+ 7f8:	e8 9a fe ff ff       	call   697 <printint>
+ 7fd:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:62
+ 800:	83 45 e8 04          	addl   $0x4,-0x18(%ebp)
+ 804:	e9 ae 00 00 00       	jmp    8b7 <printf+0x170>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:63
+ 809:	83 7d e4 73          	cmpl   $0x73,-0x1c(%ebp)
+ 80d:	75 43                	jne    852 <printf+0x10b>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:64
+ 80f:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 812:	8b 00                	mov    (%eax),%eax
+ 814:	89 45 f4             	mov    %eax,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:65
+ 817:	83 45 e8 04          	addl   $0x4,-0x18(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:66
+ 81b:	83 7d f4 00          	cmpl   $0x0,-0xc(%ebp)
+ 81f:	75 25                	jne    846 <printf+0xff>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:67
+ 821:	c7 45 f4 ba 0e 00 00 	movl   $0xeba,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:68
+ 828:	eb 1c                	jmp    846 <printf+0xff>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:69
+ 82a:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 82d:	0f b6 00             	movzbl (%eax),%eax
+ 830:	0f be c0             	movsbl %al,%eax
+ 833:	83 ec 08             	sub    $0x8,%esp
+ 836:	50                   	push   %eax
+ 837:	ff 75 08             	pushl  0x8(%ebp)
+ 83a:	e8 35 fe ff ff       	call   674 <putc>
+ 83f:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:70
+ 842:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:68
+ 846:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 849:	0f b6 00             	movzbl (%eax),%eax
+ 84c:	84 c0                	test   %al,%al
+ 84e:	75 da                	jne    82a <printf+0xe3>
+ 850:	eb 65                	jmp    8b7 <printf+0x170>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:72
+ 852:	83 7d e4 63          	cmpl   $0x63,-0x1c(%ebp)
+ 856:	75 1d                	jne    875 <printf+0x12e>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:73
+ 858:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 85b:	8b 00                	mov    (%eax),%eax
+ 85d:	0f be c0             	movsbl %al,%eax
+ 860:	83 ec 08             	sub    $0x8,%esp
+ 863:	50                   	push   %eax
+ 864:	ff 75 08             	pushl  0x8(%ebp)
+ 867:	e8 08 fe ff ff       	call   674 <putc>
+ 86c:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:74
+ 86f:	83 45 e8 04          	addl   $0x4,-0x18(%ebp)
+ 873:	eb 42                	jmp    8b7 <printf+0x170>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:75
+ 875:	83 7d e4 25          	cmpl   $0x25,-0x1c(%ebp)
+ 879:	75 17                	jne    892 <printf+0x14b>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:76
+ 87b:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 87e:	0f be c0             	movsbl %al,%eax
+ 881:	83 ec 08             	sub    $0x8,%esp
+ 884:	50                   	push   %eax
+ 885:	ff 75 08             	pushl  0x8(%ebp)
+ 888:	e8 e7 fd ff ff       	call   674 <putc>
+ 88d:	83 c4 10             	add    $0x10,%esp
+ 890:	eb 25                	jmp    8b7 <printf+0x170>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:79
+ 892:	83 ec 08             	sub    $0x8,%esp
+ 895:	6a 25                	push   $0x25
+ 897:	ff 75 08             	pushl  0x8(%ebp)
+ 89a:	e8 d5 fd ff ff       	call   674 <putc>
+ 89f:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:80
+ 8a2:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 8a5:	0f be c0             	movsbl %al,%eax
+ 8a8:	83 ec 08             	sub    $0x8,%esp
+ 8ab:	50                   	push   %eax
+ 8ac:	ff 75 08             	pushl  0x8(%ebp)
+ 8af:	e8 c0 fd ff ff       	call   674 <putc>
+ 8b4:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:82
+ 8b7:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:48 (discriminator 2)
+ 8be:	83 45 f0 01          	addl   $0x1,-0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:48 (discriminator 1)
+ 8c2:	8b 55 0c             	mov    0xc(%ebp),%edx
+ 8c5:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 8c8:	01 d0                	add    %edx,%eax
+ 8ca:	0f b6 00             	movzbl (%eax),%eax
+ 8cd:	84 c0                	test   %al,%al
+ 8cf:	0f 85 94 fe ff ff    	jne    769 <printf+0x22>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/printf.c:85
+ 8d5:	90                   	nop
+ 8d6:	c9                   	leave  
+ 8d7:	c3                   	ret    
+
+000008d8 <free>:
+free():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:26
+ 8d8:	55                   	push   %ebp
+ 8d9:	89 e5                	mov    %esp,%ebp
+ 8db:	83 ec 10             	sub    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:29
+ 8de:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8e1:	83 e8 08             	sub    $0x8,%eax
+ 8e4:	89 45 f8             	mov    %eax,-0x8(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:30
+ 8e7:	a1 44 11 00 00       	mov    0x1144,%eax
+ 8ec:	89 45 fc             	mov    %eax,-0x4(%ebp)
+ 8ef:	eb 24                	jmp    915 <free+0x3d>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:31
+ 8f1:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8f4:	8b 00                	mov    (%eax),%eax
+ 8f6:	39 45 fc             	cmp    %eax,-0x4(%ebp)
+ 8f9:	72 12                	jb     90d <free+0x35>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:31 (discriminator 1)
+ 8fb:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 8fe:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 901:	77 24                	ja     927 <free+0x4f>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:31 (discriminator 2)
+ 903:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 906:	8b 00                	mov    (%eax),%eax
+ 908:	39 45 f8             	cmp    %eax,-0x8(%ebp)
+ 90b:	72 1a                	jb     927 <free+0x4f>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:30 (discriminator 2)
+ 90d:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 910:	8b 00                	mov    (%eax),%eax
+ 912:	89 45 fc             	mov    %eax,-0x4(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:30 (discriminator 1)
+ 915:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 918:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 91b:	76 d4                	jbe    8f1 <free+0x19>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:30 (discriminator 3)
+ 91d:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 920:	8b 00                	mov    (%eax),%eax
+ 922:	39 45 f8             	cmp    %eax,-0x8(%ebp)
+ 925:	73 ca                	jae    8f1 <free+0x19>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:33
+ 927:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 92a:	8b 40 04             	mov    0x4(%eax),%eax
+ 92d:	8d 14 c5 00 00 00 00 	lea    0x0(,%eax,8),%edx
+ 934:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 937:	01 c2                	add    %eax,%edx
+ 939:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 93c:	8b 00                	mov    (%eax),%eax
+ 93e:	39 c2                	cmp    %eax,%edx
+ 940:	75 24                	jne    966 <free+0x8e>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:34
+ 942:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 945:	8b 50 04             	mov    0x4(%eax),%edx
+ 948:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 94b:	8b 00                	mov    (%eax),%eax
+ 94d:	8b 40 04             	mov    0x4(%eax),%eax
+ 950:	01 c2                	add    %eax,%edx
+ 952:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 955:	89 50 04             	mov    %edx,0x4(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:35
+ 958:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 95b:	8b 00                	mov    (%eax),%eax
+ 95d:	8b 10                	mov    (%eax),%edx
+ 95f:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 962:	89 10                	mov    %edx,(%eax)
+ 964:	eb 0a                	jmp    970 <free+0x98>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:37
+ 966:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 969:	8b 10                	mov    (%eax),%edx
+ 96b:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 96e:	89 10                	mov    %edx,(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:38
+ 970:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 973:	8b 40 04             	mov    0x4(%eax),%eax
+ 976:	8d 14 c5 00 00 00 00 	lea    0x0(,%eax,8),%edx
+ 97d:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 980:	01 d0                	add    %edx,%eax
+ 982:	39 45 f8             	cmp    %eax,-0x8(%ebp)
+ 985:	75 20                	jne    9a7 <free+0xcf>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:39
+ 987:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 98a:	8b 50 04             	mov    0x4(%eax),%edx
+ 98d:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 990:	8b 40 04             	mov    0x4(%eax),%eax
+ 993:	01 c2                	add    %eax,%edx
+ 995:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 998:	89 50 04             	mov    %edx,0x4(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:40
+ 99b:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 99e:	8b 10                	mov    (%eax),%edx
+ 9a0:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 9a3:	89 10                	mov    %edx,(%eax)
+ 9a5:	eb 08                	jmp    9af <free+0xd7>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:42
+ 9a7:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 9aa:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 9ad:	89 10                	mov    %edx,(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:43
+ 9af:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 9b2:	a3 44 11 00 00       	mov    %eax,0x1144
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:44
+ 9b7:	90                   	nop
+ 9b8:	c9                   	leave  
+ 9b9:	c3                   	ret    
+
+000009ba <morecore>:
+morecore():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:48
+ 9ba:	55                   	push   %ebp
+ 9bb:	89 e5                	mov    %esp,%ebp
+ 9bd:	83 ec 18             	sub    $0x18,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:52
+ 9c0:	81 7d 08 ff 0f 00 00 	cmpl   $0xfff,0x8(%ebp)
+ 9c7:	77 07                	ja     9d0 <morecore+0x16>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:53
+ 9c9:	c7 45 08 00 10 00 00 	movl   $0x1000,0x8(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:54
+ 9d0:	8b 45 08             	mov    0x8(%ebp),%eax
+ 9d3:	c1 e0 03             	shl    $0x3,%eax
+ 9d6:	83 ec 0c             	sub    $0xc,%esp
+ 9d9:	50                   	push   %eax
+ 9da:	e8 6d fc ff ff       	call   64c <sbrk>
+ 9df:	83 c4 10             	add    $0x10,%esp
+ 9e2:	89 45 f4             	mov    %eax,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:55
+ 9e5:	83 7d f4 ff          	cmpl   $0xffffffff,-0xc(%ebp)
+ 9e9:	75 07                	jne    9f2 <morecore+0x38>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:56
+ 9eb:	b8 00 00 00 00       	mov    $0x0,%eax
+ 9f0:	eb 26                	jmp    a18 <morecore+0x5e>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:57
+ 9f2:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 9f5:	89 45 f0             	mov    %eax,-0x10(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:58
+ 9f8:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 9fb:	8b 55 08             	mov    0x8(%ebp),%edx
+ 9fe:	89 50 04             	mov    %edx,0x4(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:59
+ a01:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ a04:	83 c0 08             	add    $0x8,%eax
+ a07:	83 ec 0c             	sub    $0xc,%esp
+ a0a:	50                   	push   %eax
+ a0b:	e8 c8 fe ff ff       	call   8d8 <free>
+ a10:	83 c4 10             	add    $0x10,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:60
+ a13:	a1 44 11 00 00       	mov    0x1144,%eax
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:61
+ a18:	c9                   	leave  
+ a19:	c3                   	ret    
+
+00000a1a <malloc>:
+malloc():
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:65
+ a1a:	55                   	push   %ebp
+ a1b:	89 e5                	mov    %esp,%ebp
+ a1d:	83 ec 18             	sub    $0x18,%esp
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:69
+ a20:	8b 45 08             	mov    0x8(%ebp),%eax
+ a23:	83 c0 07             	add    $0x7,%eax
+ a26:	c1 e8 03             	shr    $0x3,%eax
+ a29:	83 c0 01             	add    $0x1,%eax
+ a2c:	89 45 ec             	mov    %eax,-0x14(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:70
+ a2f:	a1 44 11 00 00       	mov    0x1144,%eax
+ a34:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ a37:	83 7d f0 00          	cmpl   $0x0,-0x10(%ebp)
+ a3b:	75 23                	jne    a60 <malloc+0x46>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:71
+ a3d:	c7 45 f0 3c 11 00 00 	movl   $0x113c,-0x10(%ebp)
+ a44:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ a47:	a3 44 11 00 00       	mov    %eax,0x1144
+ a4c:	a1 44 11 00 00       	mov    0x1144,%eax
+ a51:	a3 3c 11 00 00       	mov    %eax,0x113c
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:72
+ a56:	c7 05 40 11 00 00 00 	movl   $0x0,0x1140
+ a5d:	00 00 00 
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:74
+ a60:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ a63:	8b 00                	mov    (%eax),%eax
+ a65:	89 45 f4             	mov    %eax,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:75
+ a68:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ a6b:	8b 40 04             	mov    0x4(%eax),%eax
+ a6e:	39 45 ec             	cmp    %eax,-0x14(%ebp)
+ a71:	77 4d                	ja     ac0 <malloc+0xa6>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:76
+ a73:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ a76:	8b 40 04             	mov    0x4(%eax),%eax
+ a79:	39 45 ec             	cmp    %eax,-0x14(%ebp)
+ a7c:	75 0c                	jne    a8a <malloc+0x70>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:77
+ a7e:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ a81:	8b 10                	mov    (%eax),%edx
+ a83:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ a86:	89 10                	mov    %edx,(%eax)
+ a88:	eb 26                	jmp    ab0 <malloc+0x96>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:79
+ a8a:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ a8d:	8b 40 04             	mov    0x4(%eax),%eax
+ a90:	2b 45 ec             	sub    -0x14(%ebp),%eax
+ a93:	89 c2                	mov    %eax,%edx
+ a95:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ a98:	89 50 04             	mov    %edx,0x4(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:80
+ a9b:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ a9e:	8b 40 04             	mov    0x4(%eax),%eax
+ aa1:	c1 e0 03             	shl    $0x3,%eax
+ aa4:	01 45 f4             	add    %eax,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:81
+ aa7:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ aaa:	8b 55 ec             	mov    -0x14(%ebp),%edx
+ aad:	89 50 04             	mov    %edx,0x4(%eax)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:83
+ ab0:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ ab3:	a3 44 11 00 00       	mov    %eax,0x1144
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:84
+ ab8:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ abb:	83 c0 08             	add    $0x8,%eax
+ abe:	eb 3b                	jmp    afb <malloc+0xe1>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:86
+ ac0:	a1 44 11 00 00       	mov    0x1144,%eax
+ ac5:	39 45 f4             	cmp    %eax,-0xc(%ebp)
+ ac8:	75 1e                	jne    ae8 <malloc+0xce>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:87
+ aca:	83 ec 0c             	sub    $0xc,%esp
+ acd:	ff 75 ec             	pushl  -0x14(%ebp)
+ ad0:	e8 e5 fe ff ff       	call   9ba <morecore>
+ ad5:	83 c4 10             	add    $0x10,%esp
+ ad8:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ adb:	83 7d f4 00          	cmpl   $0x0,-0xc(%ebp)
+ adf:	75 07                	jne    ae8 <malloc+0xce>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:88
+ ae1:	b8 00 00 00 00       	mov    $0x0,%eax
+ ae6:	eb 13                	jmp    afb <malloc+0xe1>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:74
+ ae8:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ aeb:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ aee:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ af1:	8b 00                	mov    (%eax),%eax
+ af3:	89 45 f4             	mov    %eax,-0xc(%ebp)
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:75
+ af6:	e9 6d ff ff ff       	jmp    a68 <malloc+0x4e>
+/afs/cs.wisc.edu/u/n/u/nuelle/private/cs537/2b/xv6-sp20/user/umalloc.c:90
+ afb:	c9                   	leave  
+ afc:	c3                   	ret    

@@ -1,0 +1,38 @@
+Test P7
+['test_cases/load_data_0.txt', '5', 'python3', '-c', 'import', 'test_util;', 'print(test_util.load_data_type_test_0())']
+load_data_0.txt: test case passed: 5 points
+['test_cases/load_data_1.txt', '5', 'python3', '-c', 'import', 'test_util;', 'print(test_util.load_data_type_test())']
+load_data_1.txt: test case passed: 5 points
+['test_cases/load_data_2.txt', '5', 'python3', '-c', 'import', 'test_util;', 'print(test_util.legendary_column_test())']
+load_data_2.txt: test case passed: 5 points
+['test_cases/load_data_3.txt', '5', 'python3', '-c', 'import', 'test_util;', 'print(test_util.generation_column_test())']
+load_data_3.txt: test case passed: 5 points
+['test_cases/load_data_4.txt', '10', 'python3', '-c', 'import', 'test_util;', 'print(test_util.load_data_test())']
+load_data_4.txt: test case passed: 10 points
+['test_cases/calculate_x_y_0.txt', '5', 'python3', '-c', 'import', 'test_util;', 'print(test_util.calculate_x_y_datatype_test())']
+calculate_x_y_0.txt: test case passed: 5 points
+['test_cases/calculate_x_y_1.txt', '5', 'python3', '-c', 'import', 'test_util;', 'print(test_util.calculate_x_y_len_test())']
+calculate_x_y_1.txt: test case passed: 5 points
+['test_cases/calculate_x_y_2.txt', '10', 'python3', '-c', 'import', 'test_util;', 'print(test_util.calculate_x_y_test())']
+calculate_x_y_2.txt: test case passed: 10 points
+['test_cases/calculate_x_y_3.txt', '2', 'python3', '-c', 'import', 'test_util;', 'print(test_util.calculate_x_y_test_sub(0))']
+calculate_x_y_3.txt: test case passed: 2 points
+['test_cases/calculate_x_y_4.txt', '2', 'python3', '-c', 'import', 'test_util;', 'print(test_util.calculate_x_y_test_sub(19))']
+calculate_x_y_4.txt: test case passed: 2 points
+['test_cases/calculate_x_y_5.txt', '2', 'python3', '-c', 'import', 'test_util;', 'print(test_util.calculate_x_y_test_sub(10))']
+calculate_x_y_5.txt: test case passed: 2 points
+['test_cases/calculate_x_y_6.txt', '2', 'python3', '-c', 'import', 'test_util;', 'print(test_util.calculate_x_y_test_sub(7))']
+calculate_x_y_6.txt: test case passed: 2 points
+['test_cases/calculate_x_y_7.txt', '2', 'python3', '-c', 'import', 'test_util;', 'print(test_util.calculate_x_y_test_sub(16))']
+calculate_x_y_7.txt: test case passed: 2 points
+['test_cases/hac_0.txt', '5', 'python3', '-c', 'import', 'test_util;', 'print(test_util.hac_return_type_test())']
+hac_0.txt: output nothing 
+['test_cases/hac_1.txt', '5', 'python3', '-c', 'import', 'test_util;', 'print(test_util.hac_return_shape_test())']
+hac_1.txt: output nothing 
+['test_cases/hac_2.txt', '10', 'python3', '-c', 'import', 'test_util;', 'print(test_util.hac_strictly_increasing_test())']
+hac_2.txt: output nothing 
+['test_cases/hac_3.txt', '10', 'python3', '-c', 'import', 'test_util;', 'print(test_util.hac_tie_test())']
+hac_3.txt: output nothing 
+['test_cases/hac_4.txt', '10', 'python3', '-c', 'import', 'test_util;', 'print(test_util.hac_values_test())']
+hac_4.txt: test case has partial points: hac_4.txt: exception thrown 
+Scores: 60

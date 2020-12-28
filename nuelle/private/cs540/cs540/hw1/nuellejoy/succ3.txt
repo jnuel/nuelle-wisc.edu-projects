@@ -1,0 +1,5 @@
+Your output:
+(Sorted according to ascending order)
+[[0, 4], [1, 9], [6, 0], [6, 9], [7, 3], [7, 4]]
+Solution output:
+[[0, 0], [0, 9], [7, 2], [7, 9]]

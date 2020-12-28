@@ -1,0 +1,42 @@
+function result_img = ...
+    showCorrespondence(orig_img, warped_img, src_pts_nx2, dest_pts_nx2)
+
+I = [orig_img, warped_img];
+fh2 = figure; imshow(I);
+hold on
+
+
+
+
+sz = size(src_pts_nx2);
+n = sz(1);
+
+X = [];
+Y = [];
+
+for i = 1:1:n
+    X = [X;src_pts_nx2(i,1), 800 + dest_pts_nx2(i,1)];
+    Y = [Y; src_pts_nx2(i,2),  dest_pts_nx2(i,2)];
+end
+
+
+for i = 1:1:length(X)
+    line(X(i,:), Y(i,:),...
+            'LineWidth',2, 'Color', [1, 0, 0]);
+    hold on;
+end
+
+hold off
+
+% imshow(warped_img);
+% hold on
+% plot(dest_pts_nx2(1,1), dest_pts_nx2(1,2), 'x', 'Color', [1,0,0]);
+% hold on
+% plot(dest_pts_nx2(2,1), dest_pts_nx2(2,2), 'x', 'Color', [1,0,0]);
+% hold on
+% plot(dest_pts_nx2(3,1), dest_pts_nx2(3,2), 'x', 'Color', [1,0,0]);
+% hold on
+% plot(dest_pts_nx2(4,1), dest_pts_nx2(4,2), 'x', 'Color', [1,0,0]);
+% hold off;
+
+result_img = I;

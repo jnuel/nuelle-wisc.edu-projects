@@ -1,0 +1,39 @@
+starting build
+
+**********************************************************************
+
+Test build
+compile smash.c
+
+**********************************************************************
+gcc smash.c -o smash
+
+
+test build PASSED (5 of 5)
+ (compile smash.c)
+
+starting cd
+
+**********************************************************************
+
+Test cd
+cd with argument, and cd without argument
+
+**********************************************************************
+/tmp/tmpo2MUrz/p/./smash
+Failure: ./smash gave incorrect standard output.
+Expected: "smash> smash> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nsmash> smash> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nsmash>"Got:      "smash> smash> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nsmash> smash> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nsmash> smash>"
+
+
+test cd FAILED (0 of 10)
+ (cd with argument, and cd without argument)
+ ./smash gave incorrect standard output.
+
+ Test it yourself by running
+ smash </u/c/s/cs537-1/tests/p2a/cd/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/cd
+ to compare your output with reference outputs. 
+
+Skipped 11 tests.
+To keep testing after failing a test, use flag '-c' or '--continue'

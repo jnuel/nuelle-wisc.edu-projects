@@ -1,0 +1,35 @@
+ps  command lets you see things within the shell?
+#!/bin/bash -  signifying that everything inside this file we want to run in bash
+
+1. read and parse whatever i'm entering inside of a giant while(!exit).
+2. execute the commands and actually do what we want it to do.
+
+"which" tells you where the binary file for the command you want(say "ls" for example) is!
+	then you can call it. 
+
+# What happens when we run 'ls'?h.
+1. where is the binary that we need to run 'ls't
+   - The binary is in /bin/ls  .  We need a PATH or search path.
+   - start out with search path /bin and then the user should be able to add or remove/clear to the search path.
+
+'cd' is not a binary but is implemented by bash to let the user change the directory. can use the system call chdir()xsx
+
+2. How do we RUN it!
+   Create a new process that will run ls.
+   - How to differentiate between the processes? printf("Exiting from child %d\n", getpid()); and make one for parent.
+   - we want to fork, wait, and then let the shell do the command and then return back to its original state.
+
+3. We want the new process to run ls
+   - execv - you give it a path and it replaces the running program's binary with the binary given in the path
+     and starts that process with the arguments gvien. 
+
+4. Wait for the child process to terminate and then do work after. 
+   - man waitpid :) include <sys/wait.h> or wait() as well
+   - we are going to use exec and fork !!
+
+How do we read a line when we don't know how long it is going to be?
+   - getLine()
+   - must parse the line that we read and tokenize it. man strsep will let yo pick a very long string and look at these
+     parts of the string 
+
+redirection is a very useful thing! '>' use dup2 . it takes the file descriptor (FD number 1 is stdout) and replaces it with newfd's filenumber!! see dup2-test.c

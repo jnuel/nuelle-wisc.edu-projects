@@ -1,0 +1,120 @@
+function [mask, result_img] = backwardWarpImg(src_img, resultToSrc_H,...
+    dest_canvas_width_height)
+
+% BACK!!
+szP = size(src_img);
+sz = [dest_canvas_width_height(2) dest_canvas_width_height(1) 3];
+iH = resultToSrc_H;
+
+bg_img = uint8(zeros(sz));
+mask = double(zeros());
+for i = 1:1: sz(1)
+    for j = 1:1:sz(2)
+        v = [i;j;1];
+        a = iH*v;
+        a(1) = ceil(a(1)/a(3));
+        
+        a(2) = ceil(a(2)/a(3));
+  
+        if a(1) > 0 && a(2) > 0 && a(1) <= szP(2) &&  a(2) <= szP(1)
+            bg_img(j,i,1) = portrait_img(a(2),a(1),1);
+            bg_img(j,i,2) = portrait_img(a(2),a(1),2);
+            bg_img(j,i,3) = portrait_img(a(2),a(1),3);
+        end
+        
+    end
+end
+
+figure; imshow(bg_img)
+return;
+
+
+% result_img = zeros(dest_canvas_width_height(2),dest_canvas_width_height(1),3);
+% figure(1)
+% imshow(src_img)
+% figure(2)
+% imshow(result_img)
+% T = inv(resultToSrc_H);
+% for x = 1:1:400
+%     for y = 1:1:327
+%         v = T*[x;y;1];
+%         xt = abs(ceil(abs(v(1))*1.0/v(3)))
+%         yt = abs(ceil(abs(v(2))*1.0/v(3)));
+%         result_img(xt,yt,1) = src_img(x,y,1);
+%         result_img(xt,yt,2) = src_img(x,y,2);
+%         result_img(xt,yt,3) = src_img(x,y,3);
+%     end
+% end
+% 
+% figure(3)
+% imshow(result_img)
+% 
+% 
+% % 
+% % blCan = zeros(dest_canvas_width_height(2), dest_canvas_width_height(1));
+% % imshow(blCan);
+% % 
+% % 
+% % szSI = size(src_img);
+% % 
+% % %X = zeros(szSI(1,1:2));
+% % %Y = zeros(szSI(1,1:2));
+% % [X,Y] = meshgrid(1:szSI(1),1:szSI(2));
+% % 
+% % 
+% % Z1 = zeros(szSI(2),szSI(1));
+% % Z2 = zeros(szSI(2),szSI(1));
+% % Z3 = zeros(szSI(2),szSI(1));
+% % 
+% % 
+% % for i = 1:1:szSI(2)
+% %     for j = 1:1:szSI(1)
+% %         %X(i,j) = i;
+% %         %Y(i,j) = j;
+% %         x = X(i,j);
+% %         y = Y(i,j);
+% %         Z1(i,j) = src_img(x,y,1);
+% %         Z2(i,j) = src_img(x,y,2);
+% %         Z3(i,j) = src_img(x,y,3);
+% %     end
+% % end
+% % 
+% % szRes = size(blCan);
+% % XI = zeros(szRes);
+% % YI = zeros(szRes);
+% % result_img = zeros(szRes,3);
+% % 
+% % 
+% % for x = 1:1:szRes(1)
+% %     for y = 1:1:szRes(2)
+% %         v = resultToSrc_H*[x;y;1];
+% %         xb = v(1)/v(3);
+% %         yb = v(2)/v(3);
+% %         XI(x,y) = xb;
+% %         YI(x,y) = yb;
+% %        
+% %     end
+% % end
+% % 
+% % 
+% % ZI1 = interp2(X,Y,Z1,XI,YI);
+% % ZI2 = interp2(X,Y,Z2,XI,YI);
+% % ZI3 = interp2(X,Y,Z3,XI,YI);
+% % 
+% % for x = 1:1:szRes(1)
+% %     for y = 1:1:szRes(2)
+% %         result_img(x,y,1) = ZI1(x,y);
+% %         result_img(x,y,2) = ZI2(x,y);
+% %         result_img(x,y,3) = ZI3(x,y);  
+% %     end
+% % end
+% % 
+% % imshow(result_img)
+% % return;
+% % %[X,Y] = meshgrid(-3:.25:3);
+% % %Z = peaks(X,Y);
+% % %[XI,YI] = meshgrid(-3:.125:3);
+% % %ZI = interp2(X,Y,Z,XI,YI);
+% % 
+% % mask = 0;
+% % 

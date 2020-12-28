@@ -1,0 +1,5 @@
+Your output:
+[0, 5]
+
+Solution output:
+[0, 5]

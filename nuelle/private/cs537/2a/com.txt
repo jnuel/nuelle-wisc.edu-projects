@@ -1,0 +1,4 @@
+pwd & ls
+path add hi
+path add whatsup 	& path clear ; path add OKO
+		wc no.txt 	; cd .. ; cd 2a &

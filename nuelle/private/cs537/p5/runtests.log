@@ -1,0 +1,41 @@
+starting build
+
+**********************************************************************
+
+Test build
+build project using make
+
+**********************************************************************
+Trying to clean project using make clean
+make clean
+make: *** No rule to make target 'clean'.  Stop.
+Trying to build project using make
+make
+make: *** No targets specified and no makefile found.  Stop.
+gcc xfsck.c -iquote/u/c/s/cs537-1/xv6-sp20/include -o xfsck
+gcc: error: xfsck.c: No such file or directory
+gcc: fatal error: no input files
+compilation terminated.
+
+
+test build PASSED
+ (build project using make)
+
+starting Good
+
+**********************************************************************
+
+Test Good
+run on a good filesystem
+
+**********************************************************************
+/tmp/tmp_2rTRo/p/./xfsck /u/c/s/cs537-1/tests/p5/images/Good
+OSError: [Errno 2] No such file or directory
+
+
+test Good FAILED (0 of 2)
+ (run on a good filesystem)
+ Unexpected exception [Errno 2] No such file or directory
+
+Skipped 21 tests.
+To keep testing after failing a test, use flag '-c' or '--continue'
